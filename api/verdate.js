@@ -1,4 +1,4 @@
-function verdate (req, res) {
+function dateTimeNow (req, res) {
   res.send(new Date())
 }
 
@@ -6,5 +6,5 @@ function verdate (req, res) {
 //  res.send(new Date())
 //
 
-module.exports = { verdate }
+module.exports = { dateTimeNow }
 
