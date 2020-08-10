@@ -1,10 +1,10 @@
-function dateTimeNow (req, res) {
+//function dateTimeNow (req, res) {
+//  res.send(new Date())
+//}
+
+module.exports = (req, res) => {
   res.send(new Date())
 }
 
-//module.exports = (req, res) => {
-//  res.send(new Date())
-//
-
-module.exports = { dateTimeNow }
+//module.exports = { dateTimeNow }
 
