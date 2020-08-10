@@ -10,7 +10,7 @@ export class App extends Component {
 	}  
 
 	getDate = async () => {
-	const response = await fetch('/api/date');
+	const response = await fetch('/api/verdate');
 	console.log(`getDate: returned from fetch`);
 	const body = await response.json();
 	console.log(`getDate: got response.json() ; response.status = ${response.status}`);
