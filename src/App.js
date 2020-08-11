@@ -35,7 +35,7 @@ export class App extends Component {
 	  return (
 		<div className="App">
 		  <header className="App-header">
-			<p>{ this.state.currentDate } </p>	
+			<p>The current date is: { this.state.currentDate } </p>	
 		  </header>
 		</div>
 	  );
