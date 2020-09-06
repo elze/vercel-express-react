@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
 import {
-	stateFromApi
+	stateFromApi,
+	toggleButton
 } from './actions'
 
 export class App extends Component {
@@ -42,13 +46,19 @@ export class App extends Component {
 	
 	  return (
 		<div className="App">
-          <h1 className="Skills-title">Items</h1>
+          <h1 className="Items-Title">Items</h1>
         {
-          this.props.items.map((item, ind) => { 
+          this.props.items.map((item, index) => { 
+			let buttonClassName = 'btn btn-info btn-md button-with-margin ';
             return (		  
             <div key={item.id}>
-             <button key={item.id} className={'btn btn-info btn-md button-with-margin'} href="none">
-              {item.name}
+             <button className={buttonClassName} href="none"
+			 onClick={() => this.props.toggleSelected(index)}>
+              {item.name} &nbsp;
+				  { item.selected ? 
+					<FontAwesomeIcon icon={faCheck} />
+					: ""
+				  }
              </button>
 			</div>
 		    )
@@ -70,7 +80,8 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-	setStateFromApi: (items) => dispatch(stateFromApi(items))
+	setStateFromApi: (items) => dispatch(stateFromApi(items)),
+	toggleSelected: (index) => dispatch(toggleButton(index))
   };
 }
 
